@@ -59,21 +59,21 @@ def filter_by_industry(jobs, industry):
 
 
 def get_max_salary(path):
-    """Get the maximum salary of all jobs
+    all_info_jobs = read(path)
+    all_salary_string = []
+    higher_salary = 0
 
-    Must call `read`
+    for job in all_info_jobs:
+        if job["max_salary"] != '' and job["max_salary"].isdigit():
+            all_salary_string.append(job["max_salary"])
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
+    all_salary_number = list(map(int, all_salary_string))
 
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    pass
+    for salary in all_salary_number:
+        if salary > higher_salary:
+            higher_salary = salary
+
+    return higher_salary
 
 
 def get_min_salary(path):
@@ -141,3 +141,4 @@ def filter_by_salary_range(jobs, salary):
 if __name__ == '__main__':
     print(get_unique_job_types("src/jobs.csv"))
     print(get_unique_industries("src/jobs.csv"))
+    print(get_max_salary("src/jobs.csv"))
