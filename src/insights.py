@@ -26,7 +26,6 @@ def get_unique_industries(path):
     for job in all_info_jobs:
         if job["industry"] != '':
             all_industries.add(job["industry"])
-
     return all_industries
 
 
