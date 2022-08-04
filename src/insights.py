@@ -77,21 +77,22 @@ def get_max_salary(path):
 
 
 def get_min_salary(path):
-    """Get the minimum salary of all jobs
+    all_info_jobs = read(path)
+    all_salary_string = []
+    higher_salary = 0
 
-    Must call `read`
+    for job in all_info_jobs:
+        if job["min_salary"] != '' and job["min_salary"].isdigit():
+            all_salary_string.append(job["min_salary"])
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
+    all_salary_number = list(map(int, all_salary_string))
+    higher_salary = all_salary_number[0]
 
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
-    pass
+    for salary in all_salary_number:
+        if salary < higher_salary:
+            higher_salary = salary
+
+    return higher_salary
 
 
 def matches_salary_range(job, salary):
@@ -142,3 +143,4 @@ if __name__ == '__main__':
     print(get_unique_job_types("src/jobs.csv"))
     print(get_unique_industries("src/jobs.csv"))
     print(get_max_salary("src/jobs.csv"))
+    print(get_min_salary("src/jobs.csv"))
