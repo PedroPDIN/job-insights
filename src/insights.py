@@ -95,26 +95,29 @@ def average_wage(salary_average, salary):
 
 
 def filter_by_salary_range(jobs, salary):
-    """Filters a list of jobs by salary range
-
-    Parameters
-    ----------
-    jobs : list
-        The jobs to be filtered
-    salary : int
-        The salary to be used as filter
-
-    Returns
-    -------
-    list
-        Jobs whose salary range contains `salary`
-    """
-    return []
+    filter_salary = []
+    for job in jobs:
+        try:
+            value_filter_salary = matches_salary_range(job, salary)
+            if value_filter_salary is True:
+                filter_salary.append(job)
+        except ValueError:
+            pass
+    return filter_salary
 
 
 if __name__ == '__main__':
+    jobs = [
+        {"max_salary": 0, "min_salary": 10},
+        {"max_salary": 10, "min_salary": 100},
+        {"max_salary": 10000, "min_salary": 200},
+        {"max_salary": 15000, "min_salary": 0},
+        {"max_salary": 1500, "min_salary": 0},
+        {"max_salary": -1, "min_salary": 10},
+    ]
+
     print(get_unique_job_types("src/jobs.csv"))
     print(get_unique_industries("src/jobs.csv"))
     print(get_max_salary("src/jobs.csv"))
     print(get_min_salary("src/jobs.csv"))
-    # print(matches_salary_range(read("src/jobs.csv"), 120234))
+    print(filter_by_salary_range(jobs, 10000))
