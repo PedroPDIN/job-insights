@@ -75,29 +75,23 @@ def get_min_salary(path):
 
 
 def matches_salary_range(job, salary):
-    """Checks if a given salary is in the salary range of a given job
+    if job.get("min_salary") is None or job.get("max_salary") is None:
+        raise ValueError("Values does not exist")
+    elif type(job["min_salary"]) != int or type(job["max_salary"]) != int:
+        raise ValueError("Von-numeric values")
+    elif job["min_salary"] > job["max_salary"]:
+        raise ValueError("Minimum wage higher than maximum wage")
+    elif type(salary) != int:
+        raise ValueError("Value is not numeric")
+    else:
+        return average_wage(job, salary)
 
-    Parameters
-    ----------
-    job : dict
-        The job with `min_salary` and `max_salary` keys
-    salary : int
-        The salary to check if matches with salary range of the job
 
-    Returns
-    -------
-    bool
-        True if the salary is in the salary range of the job, False otherwise
-
-    Raises
-    ------
-    ValueError
-        If `job["min_salary"]` or `job["max_salary"]` doesn't exists
-        If `job["min_salary"]` or `job["max_salary"]` aren't valid integers
-        If `job["min_salary"]` is greather than `job["max_salary"]`
-        If `salary` isn't a valid integer
-    """
-    pass
+def average_wage(salary_average, salary):
+    if salary_average["min_salary"] <= salary <= salary_average["max_salary"]:
+        return True
+    else:
+        return False
 
 
 def filter_by_salary_range(jobs, salary):
@@ -123,4 +117,4 @@ if __name__ == '__main__':
     print(get_unique_industries("src/jobs.csv"))
     print(get_max_salary("src/jobs.csv"))
     print(get_min_salary("src/jobs.csv"))
-    print(filter_by_job_type())
+    # print(matches_salary_range(read("src/jobs.csv"), 120234))
