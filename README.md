@@ -3,7 +3,7 @@
 <details>
   <summary><strong>👨‍💻 O que foi desenvolvido</strong></summary><br />
   
-  Neste projeto tem como implementar de forma prática análises a partir de um conjunto de dados sobre empregos. Suas implementações serão incorporadas a um aplicativo Web desenvolvido com Flask (um framework web muito popular na comunidade Python).
+  Neste projeto tem como implementar de forma prática(leitura e escrita de arquivos) análises a partir de um conjunto de dados sobre empregos. Suas implementações serão incorporadas a um aplicativo Web desenvolvido com Flask (um framework web muito popular na comunidade Python).
 
   Os dados foram extraídos do site [Glassdoor](https://www.glassdoor.com.br/) e obtidos através do [Kaggle](https://www.kaggle.com/atharvap329/glassdoor-data-science-job-data), uma plataforma disponiblizando conjuntos de dados para cientistas de dados.
 
