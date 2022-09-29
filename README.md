@@ -173,3 +173,5 @@ O nome deste teste **deve** ser `test_counter`, e ele deve garantir que atenda e
   - `word` uma string com a palavra a ser contabilizada.
 - Garantir que a função retorna corretamente a quantidade de ocorrências da palavra solicitada 
   - A contagem de palavras deve ser _case insentitive_, ou seja, não diferenciar letras maiúsculas de minúsculas
+
+#### :warning: Importante :warning:: O grupo Trybe foi responsável por realizar o inicio do projeto (e também os commits iniciais), mas precisamente a estrutura do projeto e as configuração dos tests para a avaliação do projeto.
